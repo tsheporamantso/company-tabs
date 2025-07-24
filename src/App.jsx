@@ -17,12 +17,12 @@ function App() {
     try {
       const res = await axios(url);
       setJobs(res.data);
+      setIsLoading(false);
     } catch (error) {
       console.error("Error fetching jobs:", error);
       setIsLoading(false);
       setError("Failed to fetch job data. Please try again later.");
     }
-    setIsLoading(false);
   };
 
   useEffect(() => {
