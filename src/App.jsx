@@ -43,7 +43,7 @@ function App() {
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
       />
-      <JobInfo jobs={jobs} currentItem={currentItem} />
+      {jobs.length > 0 && <JobInfo jobs={jobs} currentItem={currentItem} />}
     </section>
   );
 }
