@@ -18,7 +18,6 @@ function App() {
       setJobs(res.data);
     } catch (error) {
       console.error("Error fetching jobs:", error);
-      setIsLoading(false);
       alert("Failed to fetch job data. Please try again later.");
     }
     setIsLoading(false);
