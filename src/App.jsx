@@ -10,6 +10,7 @@ function App() {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [currentItem, setCurrentItem] = useState(0);
+  const [error, setError] = useState(null);
 
   const fetchJobs = async () => {
     setIsLoading(true);
@@ -19,7 +20,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching jobs:", error);
       setIsLoading(false);
-      alert("Failed to fetch job data. Please try again later.");
+      setError("Failed to fetch job data. Please try again later.");
     }
     setIsLoading(false);
   };
@@ -43,7 +44,8 @@ function App() {
         currentItem={currentItem}
         setCurrentItem={setCurrentItem}
       />
-      {jobs.length > 0 && <JobInfo jobs={jobs} currentItem={currentItem} />}
+
+      <JobInfo jobs={jobs} currentItem={currentItem} error={error} />
     </section>
   );
 }
