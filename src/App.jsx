@@ -17,7 +17,9 @@ function App() {
       const res = await axios(url);
       setJobs(res.data);
     } catch (error) {
-      throw new Error(`Something went wrong ${error}`);
+      console.error("Error fetching jobs:", error);
+      setIsLoading(false);
+      alert("Failed to fetch job data. Please try again later.");
     }
     setIsLoading(false);
   };
