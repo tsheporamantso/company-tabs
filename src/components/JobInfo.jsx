@@ -1,6 +1,9 @@
 import Duties from "./Duties";
 
 const JobInfo = ({ jobs, currentItem }) => {
+  if (!jobs || !jobs[currentItem]) {
+    return null;
+  }
   const { company, dates, title, duties } = jobs[currentItem];
 
   return (
